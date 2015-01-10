@@ -15,8 +15,8 @@ The tool takes as inputs an ontology and a text file. The latter is the so-calle
 
 usage
 --------------------
-Build using the Ant script and run the JAR file. For large ontologies you may have to increase the heap space and entity expansion limit (esp. for ontologies in RDF/XML), e.g., for 4GB heap:<br><br>
-`java -jar -Xmx4096M -DentityExpansionLimit=100000000 owlme.jar`
+Build using the Ant script and run the **owl-me.jar** file. For large ontologies you may have to increase the heap space and entity expansion limit (esp. for ontologies in RDF/XML), e.g., for 4GB heap:<br><br>
+`java -jar -Xmx4G -DentityExpansionLimit=100000000 owl-me.jar`
 
 
 signatures for module extraction
