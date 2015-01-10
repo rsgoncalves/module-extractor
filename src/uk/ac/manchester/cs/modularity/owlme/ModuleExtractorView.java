@@ -76,7 +76,8 @@ public class ModuleExtractorView {
 	private boolean windows;
 
 	/**
-	 * Launch the application.
+	 * Main
+	 * @param args	Arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -91,6 +92,7 @@ public class ModuleExtractorView {
 		});
 	}
 
+	
 	/**
 	 * Create the application.
 	 */
@@ -98,6 +100,7 @@ public class ModuleExtractorView {
 		initialize();
 	}
 
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -280,8 +283,10 @@ public class ModuleExtractorView {
 		frmModuleExtractor.getContentPane().setLayout(groupLayout);
 	}
 	
+	
 	/**
 	 * Browse or enter ontology file path
+	 * @param evt	MouseEvent
 	 */
 	private void openButtonMouseClicked(java.awt.event.MouseEvent evt) {
 		JFrame frame = new JFrame();
@@ -314,8 +319,10 @@ public class ModuleExtractorView {
         }
 	}
 	
+	
 	/**
 	 * Browse or enter signature file path
+	 * @param evt	MouseEvent
 	 */
 	private void openSignatureFile(java.awt.event.MouseEvent evt) {
 		JFrame frame = new JFrame();
@@ -348,8 +355,10 @@ public class ModuleExtractorView {
         }
 	}
 	
+	
 	/**
 	 * Browse or enter module save path
+	 * @param evt	MouseEvent
 	 */
 	private void saveLocationButton(java.awt.event.MouseEvent evt) {
 		JFrame frame = new JFrame();

@@ -8,10 +8,15 @@ Built using the [OWL API](http://owlapi.sourceforge.net/).
 
 summary
 --------------------
-
 *owl-me* is a standalone tool designed to extract different types of [Locality-based modules](http://owl.cs.manchester.ac.uk/research/modularity/) from OWL ontologies.
 
 The tool takes as inputs an ontology and a text file. The latter is the so-called *signature file*, which contains entity (class and object/data property) IRIs. The tool extracts a module for the specified set of IRIs (i.e. signature) onto a chosen location.
+
+
+usage
+--------------------
+Build using the Ant script and run the JAR file. For large ontologies you may have to increase the heap space and entity expansion limit (esp. for ontologies in RDF/XML), e.g., for 4GB heap:<br><br>
+`[java -jar -Xmx4096M -DentityExpansionLimit=100000000 owlme.jar]`
 
 
 signatures for module extraction
@@ -35,7 +40,6 @@ Class_IRI_4<br>
 
 SNOMED CT
 --------------------
-
 The module extractor accepts signature files for the SNOMED CT ontology in the *UMLS Core Subset format*. Any manually constructed signature files **should have the concept ID's delimited by vertical bars "|"**, in a similar way as the UMLS Core Subset files.
 
 
