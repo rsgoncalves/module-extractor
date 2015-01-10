@@ -104,7 +104,7 @@ public class ModuleExtractorView {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize() {
 		frmModuleExtractor = new JFrame();
-		frmModuleExtractor.setTitle("OWL-ME: OWL Module Extractor");
+		frmModuleExtractor.setTitle("owl-me: a module extractor for OWL ontologies");
 		frmModuleExtractor.setBounds(100, 100, 650, 500);
 		frmModuleExtractor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ontUriChanged = false;
