@@ -9,7 +9,7 @@ Built using the [OWL API](http://owlapi.sourceforge.net/).
 summary
 --------------------
 
-*owl-me* is a standalone tool designed to extract different types of [Locality-based modules](http://owl.cs.manchester.ac.uk/research/topics/modularity) from OWL ontologies.
+*owl-me* is a standalone tool designed to extract different types of [Locality-based modules](http://owl.cs.manchester.ac.uk/research/modularity/) from OWL ontologies.
 
 The tool takes as inputs an ontology and a text file. The latter is the so-called *signature file*, which contains entity (class and object/data property) IRIs. The tool extracts a module for the specified set of IRIs (i.e. signature) onto a chosen location.
 
