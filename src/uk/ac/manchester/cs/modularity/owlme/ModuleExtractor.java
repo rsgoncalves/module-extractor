@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import org.semanticweb.owlapi.manchestersyntax.renderer.ManchesterOWLSyntaxObjectRenderer;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
@@ -19,7 +20,6 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
-import uk.ac.manchester.cs.owl.owlapi.mansyntaxrenderer.ManchesterOWLSyntaxObjectRenderer;
 import uk.ac.manchester.cs.owlapi.modularity.ModuleType;
 import uk.ac.manchester.cs.owlapi.modularity.SyntacticLocalityModuleExtractor;
 
@@ -40,7 +40,7 @@ public class ModuleExtractor {
         OWLDataFactory df = man.getOWLDataFactory();
         sigParseLog = "";
 
-        IRI ontIri = ontology.getOntologyID().getDefaultDocumentIRI();
+        IRI ontIri = ontology.getOntologyID().getDefaultDocumentIRI().get();
         
         boolean snomed = false;
         boolean termsFound = false, notFound = false;
@@ -105,25 +105,24 @@ public class ModuleExtractor {
 		        		String s = st.nextToken();
 		        		System.out.println("Token from signature file: " + s );
 		        		IRI termIri = findTermIRI(ontology, s);
-		        		System.out.print("\tIRI: " + termIri.toString());
 			            if(ontology.containsClassInSignature(termIri)) {
 			            	OWLClass cls = df.getOWLClass(termIri);
 			                sig.add(cls); termsFound=true;
-			                System.out.println(". This term is an OWL class.");
+			                System.out.println("\tOWL class. IRI: " + termIri.toString());
 			            }
 			            else if(ontology.containsObjectPropertyInSignature(termIri)) {
 			            	OWLObjectProperty prop = df.getOWLObjectProperty(termIri);
 			            	sig.add(prop); termsFound=true;
-			            	System.out.println(". This term is an OWL object property.");
+			            	System.out.println("\tOWL object property. IRI: " + termIri.toString());
 			            }
 			            else if(ontology.containsDataPropertyInSignature(termIri)) {
 			            	OWLDataProperty prop = df.getOWLDataProperty(termIri);
 			            	sig.add(prop); termsFound=true;
-			            	System.out.println(". This term is an OWL data property.");
+			            	System.out.println("\tOWL data property. IRI: " + termIri.toString());
 			            }
 			            else {
 			                sigParseLog += "\nThere is no term " + termIri + " in the ontology.";
-			                System.out.println("There is no term " + termIri + " in the ontology.");
+			                System.out.println("\t! The term " + termIri + " is not in the ontology.");
 			                notFound = true;
 			            }
 		        	}
@@ -164,7 +163,6 @@ public class ModuleExtractor {
 	private static String getManchesterSyntax(OWLObject obj) {
 		StringWriter wr = new StringWriter();
 		ManchesterOWLSyntaxObjectRenderer render = new ManchesterOWLSyntaxObjectRenderer(wr, sf);
-		render.setUseWrapping(false);
 		obj.accept(render);
 		String str = wr.getBuffer().toString();
 		return str;

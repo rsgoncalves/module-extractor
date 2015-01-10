@@ -8,6 +8,7 @@ import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.parameters.Imports;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -186,7 +187,7 @@ public class ModExtractionTools {
     }
 
     public static String getStatisticsSetRef(OWLOntology ontology){
-        return getStatisticsSetRef(ontology.getSignature(true), ontology.getAxioms());
+        return getStatisticsSetRef(ontology.getSignature(Imports.INCLUDED), ontology.getAxioms());
     }
 
     public static String getStatisticsSetRef(Set<OWLEntity> ents, Set<OWLAxiom> axs){
@@ -196,7 +197,7 @@ public class ModExtractionTools {
     }
 
     public static String getStatisticsGetRef(OWLOntology ontology){
-        return getStatisticsGetRef(ontology.getSignature(true), ontology.getAxioms());
+        return getStatisticsGetRef(ontology.getSignature(Imports.INCLUDED), ontology.getAxioms());
     }
 
     public static String getStatisticsGetRef(Set<OWLEntity> ents, Set<OWLAxiom> axs){

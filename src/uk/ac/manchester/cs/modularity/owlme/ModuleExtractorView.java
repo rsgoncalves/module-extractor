@@ -43,6 +43,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.util.VersionInfo;
 
 import uk.ac.manchester.cs.owlapi.modularity.ModuleType;
 
@@ -203,7 +204,7 @@ public class ModuleExtractorView {
 		scrollPane = new JScrollPane(log);
 		progressBar = new JProgressBar();
 		
-		JLabel lblCopyrightRafael = new JLabel("Copyright 2011-2013 Rafael Gon\u00E7alves, The University of Manchester");
+		JLabel lbl = new JLabel("Powered by the OWL API v" + VersionInfo.getVersionInfo().getVersion().trim());
 		GroupLayout groupLayout = new GroupLayout(frmModuleExtractor.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -238,7 +239,7 @@ public class ModuleExtractorView {
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
-							.addComponent(lblCopyrightRafael)))
+							.addComponent(lbl)))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -273,7 +274,7 @@ public class ModuleExtractorView {
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblCopyrightRafael))
+						.addComponent(lbl))
 					.addContainerGap())
 		);
 		frmModuleExtractor.getContentPane().setLayout(groupLayout);
