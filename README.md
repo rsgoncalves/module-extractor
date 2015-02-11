@@ -55,3 +55,6 @@ contact
 Consider checking the [OWL@Manchester](http://owl.cs.manchester.ac.uk) website (and linked publications) for more information regarding _Locality-based_ modules, before submitting queries.
 
 If you come across any bugs please use the "Issues" tab to describe the problem, along with sufficient data to reproduce it (i.e. the ontology and signature used).
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rsgoncalves/module-extractor/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
