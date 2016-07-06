@@ -69,7 +69,6 @@ public class ModuleExtractor {
                 if(pos < 0) throw new RuntimeException("There is no '|' in:   ");
                 
                 s = s.substring(0,pos).trim();
-		System.out.println("'" + s + "'");
                 IRI iri = IRI.create(termsIri + s);
                 OWLClass cls = df.getOWLClass(iri);
                 if (ontology.containsClassInSignature(iri)) {
