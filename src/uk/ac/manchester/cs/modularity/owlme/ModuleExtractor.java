@@ -49,17 +49,16 @@ public class ModuleExtractor {
         // Check entity IRIs for Snomed concepts 
         loopClasses:
         for(OWLClass c : ontology.getClassesInSignature()) {
-        	if(c.getIRI().toString().contains("www.ihtsdo.org")) {
+        	if(c.getIRI().toString().contains("snomed.info")) {
         		snomed = true;
-        		termsIri += c.getIRI().toString();
-        		termsIri = termsIri.substring(0, termsIri.indexOf(".org/")+5);
+        		termsIri = "http://snomed.info/id/";
         		break loopClasses;
         	}
         }
         
-        if(ontIri.toString().contains("www.ihtsdo.org")) {
+        if(ontIri.toString().contains("snomed.info")) {
         	snomed = true;
-        	termsIri = ontIri.toString().substring(0, ontIri.toString().indexOf(".org/")+5);
+    		termsIri = "http://snomed.info/id/";
         }
         
         if(snomed) {
@@ -69,7 +68,7 @@ public class ModuleExtractor {
                 int pos = s.indexOf("|");
                 if(pos < 0) throw new RuntimeException("There is no '|' in:   ");
                 
-                s = "SCT_" + s.substring(0,pos);
+                s = s.substring(0,pos);
                 IRI iri = IRI.create(termsIri + s);
                 OWLClass cls = df.getOWLClass(iri);
                 if (ontology.containsClassInSignature(iri)) {
