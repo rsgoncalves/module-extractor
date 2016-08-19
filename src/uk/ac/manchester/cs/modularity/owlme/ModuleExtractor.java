@@ -81,7 +81,7 @@ public class ModuleExtractor {
                 }
             }
             
-            IRI roleGroupIRI = IRI.create(ontology.getOntologyID().getOntologyIRI() + "RoleGroup");
+            IRI roleGroupIRI = IRI.create(termsIri + "609096000");
             OWLObjectProperty roleGroup = df.getOWLObjectProperty(roleGroupIRI);
             
             if (ontology.containsObjectPropertyInSignature(roleGroupIRI)) {
