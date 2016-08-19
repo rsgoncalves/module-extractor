@@ -450,7 +450,7 @@ public class ModuleExtractorView {
 				OWLOntology mod = null;
 				publish("\n" + prefix("EXTRACTING MODULE ..."));
 				
-				String moduleName = currentOntology.getOntologyID().getOntologyIRI().toString();
+				String moduleName = currentOntology.getOntologyID().getOntologyIRI().get().toString();
 				if(moduleName.contains(".owl"))
 					moduleName = moduleName.substring(0, moduleName.indexOf(".owl")) + "_module" + modCounter + ".owl";
 				else
